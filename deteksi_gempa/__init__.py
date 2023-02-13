@@ -2,6 +2,7 @@ import none as none
 import requests as requests
 from bs4 import BeautifulSoup
 
+description = "to get latest information of earthquake in indonesian from BMKG.go.id "
 
 def ekstraksi_data():
 
@@ -83,6 +84,7 @@ def tampilkan_data(result):
     print(f'ket \t\t : {result["dirasakan"]}')
 
 if __name__ == '__main__':
+    print(f"deskripsi : {description}\n")
     print("aplikasi utama")
     result = ekstraksi_data()
     tampilkan_data(result)
