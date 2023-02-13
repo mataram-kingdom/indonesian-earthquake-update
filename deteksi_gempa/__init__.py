@@ -84,7 +84,7 @@ def tampilkan_data(result):
     print(f'ket \t\t : {result["dirasakan"]}')
 
 if __name__ == '__main__':
-    print(f"deskripsi : {description}\n")
+    print(f"\ndeskripsi : {description}\n")
     print("aplikasi utama")
     result = ekstraksi_data()
     tampilkan_data(result)
