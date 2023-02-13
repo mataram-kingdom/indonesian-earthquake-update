@@ -8,12 +8,12 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.13'
+VERSION = '0.14'
 DESCRIPTION = 'this is an package of latest indonesian earthquake'
 LONG_DESCRIPTION = 'this package uses beautifulsoup4 and request, the result of this package is the latest earthquake update information in the Indonesian region'
 # Setting up
 setup(
-    name="indonesian.earthquake",
+    name="indonesian.BMKG",
     version=VERSION,
     author="Muhammad Afrizal",
     author_email="muhamadafrizal5@gmail.com",

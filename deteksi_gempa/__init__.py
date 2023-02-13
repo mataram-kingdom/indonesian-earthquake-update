@@ -3,7 +3,6 @@ import requests as requests
 from bs4 import BeautifulSoup
 
 
-
 def ekstraksi_data():
 
 
@@ -28,7 +27,7 @@ def ekstraksi_data():
         ket = None
 
         for i in result:
-            print(j,i)
+            # print(j,i)
             if j == 1:
                 mag = i.text
             elif j == 2:
@@ -50,7 +49,7 @@ def ekstraksi_data():
         waktu = tanggal.text.split(', ')[1]
         # mag = soup.find('ul',{'class': 'list-unstyled'})
         print(title.string)
-        print("==================================")
+        print("\n===========================================\n")
 
 
 
@@ -83,5 +82,7 @@ def tampilkan_data(result):
     print(f'lokasi \t\t : {result["lokasi"]}')
     print(f'ket \t\t : {result["dirasakan"]}')
 
-# if __name__ = '__main__':
-#     print("hai")
+if __name__ == '__main__':
+    print("aplikasi utama")
+    result = ekstraksi_data()
+    tampilkan_data(result)
