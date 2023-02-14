@@ -1,18 +1,23 @@
 import none as none
 import requests as requests
 from bs4 import BeautifulSoup
+"""
+method              = fungsi
+field / attribute   = variabel
+"""
+
 
 
 class GempaTerkini:
-    def __init__(self):
+    def __init__(self, url):
         self.description = "to get latest information of earthquake in indonesian from BMKG.go.id "
         self.result = None
-
+        self.url = url
     def ekstraksi_data(self):
 
 
         try:
-            r = requests.get('https://www.bmkg.go.id/')
+            r = requests.get(self.url)
         except  Exception:
             return None
         if r.status_code == 200 :
@@ -90,7 +95,7 @@ class GempaTerkini:
         self.tampilkan_data()
 
 if __name__ == '__main__':
-    gempa_di_indonesia = GempaTerkini()
+    gempa_di_indonesia = GempaTerkini('https://www.bmkg.go.id/')
     print(f"\ndeskripsi : {gempa_di_indonesia.description}\n")
     gempa_di_indonesia.run()
 
