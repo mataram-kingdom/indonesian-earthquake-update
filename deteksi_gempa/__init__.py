@@ -4,16 +4,29 @@ from bs4 import BeautifulSoup
 """
 method              = fungsi
 field / attribute   = variabel
+constructor         = method pertama kali yang dipanggil saat object diciptakan . gunakan untuk 
+                        mendeklarasiakn semua field pada kelas ini
 """
 
-
-
-class GempaTerkini:
-    def __init__(self, url):
-        self.description = "to get latest information of earthquake in indonesian from BMKG.go.id "
+class Bencana:
+    def __init__(self, url, description):
+        self.description = description
         self.result = None
         self.url = url
-    def ekstraksi_data(self):
+    def scrapping_data(self):
+        pass
+    def tampilkan_data(self):
+        pass
+    def run(self):
+        self.scrapping_data()
+        self.tampilkan_data()
+
+
+
+class GempaTerkini(Bencana):
+    def __init__(self, url):
+        super(GempaTerkini, self).__init__(url, "to get latest information of earthquake in indonesian from BMKG.go.id ")
+    def scrapping_data(self):
 
 
         try:
@@ -90,14 +103,23 @@ class GempaTerkini:
         print(f'lokasi \t\t : {self.result["lokasi"]}')
         print(f'ket \t\t : {self.result["dirasakan"]}')
 
-    def run(self):
-        self.ekstraksi_data()
-        self.tampilkan_data()
+class BanjirTerkini(Bencana):
+
+    def tampilkan_data(self):
+        if self.result is None:
+            print(f"BANJIR | data banjir terkini di Indonesia")
+    def __init__(self, url):
+        super(BanjirTerkini, self).__init__(url, "NOT YET IMPLEMENTED")
 
 if __name__ == '__main__':
+
     gempa_di_indonesia = GempaTerkini('https://www.bmkg.go.id/')
     print(f"\ndeskripsi : {gempa_di_indonesia.description}\n")
     gempa_di_indonesia.run()
+
+    banjir_di_indonesia = BanjirTerkini('NOT YET')
+    print(f"\ndeskripsi : {banjir_di_indonesia.description}")
+    banjir_di_indonesia.run()
 
     # gempa_di_indonesia.tampilkan_data()
     # gempa_di_indonesia.ekstraksi_data()
