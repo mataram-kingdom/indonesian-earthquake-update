@@ -17,6 +17,8 @@ class Bencana:
         pass
     def tampilkan_data(self):
         pass
+    def keterangan(self):
+        print(self.description)
     def run(self):
         self.scrapping_data()
         self.tampilkan_data()
@@ -108,18 +110,28 @@ class BanjirTerkini(Bencana):
     def tampilkan_data(self):
         if self.result is None:
             print(f"BANJIR | data banjir terkini di Indonesia")
+
+    def keterangan(self):
+        print(f"Info mengenai banjir : {self.description}")
     def __init__(self, url):
         super(BanjirTerkini, self).__init__(url, "NOT YET IMPLEMENTED")
 
 if __name__ == '__main__':
 
     gempa_di_indonesia = GempaTerkini('https://www.bmkg.go.id/')
-    print(f"\ndeskripsi : {gempa_di_indonesia.description}\n")
+    gempa_di_indonesia.keterangan()
+    # print(f"\ndeskripsi : {gempa_di_indonesia.description}\n")
     gempa_di_indonesia.run()
 
     banjir_di_indonesia = BanjirTerkini('NOT YET')
-    print(f"\ndeskripsi : {banjir_di_indonesia.description}")
+    banjir_di_indonesia.keterangan()
+    # print(f"\ndeskripsi : {banjir_di_indonesia.description}")
     banjir_di_indonesia.run()
 
-    # gempa_di_indonesia.tampilkan_data()
-    # gempa_di_indonesia.ekstraksi_data()
+    daftar_bencana = [gempa_di_indonesia, banjir_di_indonesia]
+    print("\nsemua bencana yang ada =================")
+    for Bencana in daftar_bencana :
+        Bencana.keterangan()
+
+
+
